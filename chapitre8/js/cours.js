@@ -54,3 +54,22 @@ ajaxGet("http://localhost/javascript-web-server/data/films.json", function (repo
         console.log(film.titre);
     })
 });
+
+// afficher les langages 
+var liste_elt = document.getElementById("langages");
+function afficherHTML(chaine) {
+    console.log(chaine);
+    var tab_chaine = chaine.split(";");
+    
+    for(i=0;i<tab_chaine.length;i++){
+        console.log(tab_chaine[i]);
+        
+        //ajout du langage dans la page
+        li_elt = document.createElement("li");
+        li_elt.textContent = tab_chaine[i];
+        liste_elt.appendChild(li_elt);
+    }
+}
+
+ajaxGet("http://localhost/javascript-web-server/data/langages.txt", afficherHTML);
+
